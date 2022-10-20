@@ -29,13 +29,13 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <h1 className="App-title">Monsters Rolodex</h1>
+    <div className='App'>
+      <h1 className='App-title'>Monsters Rolodex</h1>
 
       <SearchBox
         onChangeHandler={onSearchChange}
-        className="monster-search-box"
-        placeholder="search Monsters"
+        className='monster-search-box'
+        placeholder='search Monsters'
       />
 
       <CardList monsters={filteredMonsters} />

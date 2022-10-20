@@ -1,17 +1,79 @@
-.card-container {
+.card-container,.single-card {
   display: flex;
-  flex-direction: column;
-  background-color: #95dada;
-  border: 1px solid grey;
-  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
   padding: 25px;
   cursor: pointer;
-  -moz-osx-font-smoothing: grayscale;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  transition: transform 0.25s ease-out;
+  height: 350px;
+  max-width: 230px; 
+  position: relative;
+}
+.card-container {
+  perspective: 900px;
+}
+.single-card {
+  text-align: center;
+  background-color: #95dada;
+  border: 5px solid grey;
+  border-radius: 5px;
+  transition: all 1.5s cubic-bezier(0.7,-.5,0.3,1.8);
+  transform-style: preserve-3d;
+}
+.card-container:hover .single-card {
+  transform: rotateY(180deg);
 }
 
-.card-container:hover {
-  transform: scale(1.05);
+.front, .back {
+  width: 300px;
+  position: relative;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  
+}
+
+.front {
+  cursor: pointer;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+  transform-orgin: center;
+  position: absolute;
+  height: 100%;
+}
+
+.content {
+  padding-top: 15%;
+  max-width: 100%;
+}
+
+.content h2 {
+  font-size: 35px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.content p {
+  margin: 0;
+}
+
+.email,.website, .phone  {
+  
+  padding: 0 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+
+.socials {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 80px;
+  margin-top: 20px;
 }
