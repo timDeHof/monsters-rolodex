@@ -1,5 +1,7 @@
-import "./card.styles.css";
-import { MdEmail } from "react-icons/md";
+import { Monster } from "../../App"
+
+import "./card.styles.css"
+import { MdEmail } from "react-icons/md"
 import {
   FaHome,
   FaTwitter,
@@ -7,20 +9,22 @@ import {
   FaFacebook,
   FaDribbble,
   FaLinkedinIn,
-} from "react-icons/fa";
-import { BsGlobe, BsFillTelephoneFill } from "react-icons/bs";
-const Card = ({ monster }) => {
-  const { name, email, id, website, phone, address } = monster;
-  const { city, street, suite, zipcode } = address;
+} from "react-icons/fa"
+import { BsGlobe, BsFillTelephoneFill } from "react-icons/bs"
+
+type CardProps = {
+  monster : Monster;
+}
+
+const Card = ({ monster }: CardProps) => {
+  const { name, email, id, website, phone, address } = monster
+  const { city, street, suite, zipcode } = address
 
   return (
     <div className='card-container' key={id}>
       <div className='single-card'>
         <div className='front'>
-          <img
-            alt={`monster ${name}`}
-            src={`https://robohash.org/${id}?set=set2&size=180x180`}
-          />
+          <img alt={`monster ${name}`} src={`https://robohash.org/${id}?set=set2&size=180x180`} />
           <div className='content'>
             <h2>{name}</h2>
           </div>
@@ -60,7 +64,7 @@ const Card = ({ monster }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card
