@@ -20,4 +20,12 @@ body {
   font-family: "Bigelow Rules", cursive;
   color: #0ccac4;
   letter-spacing: 3px;
+  text-align: center;
+}
+
+@media only screen (min-width: 375px) {
+  .App-title{
+    max-width: 60vw;
+    margin: 0 auto;
+  }
 }
