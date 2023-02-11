@@ -4,19 +4,19 @@ import CardList from "./components/card-list/card-list.component"
 import SearchBox from "./components/search-box/search-box.component"
 import "./App.css"
 
-import { getData } from './utils/data.utils'
+import { getData } from "./utils/data.utils"
 
 export type Monster = {
-  id: string;
-  name: string;
-  email: string;
-  website: string;
-  phone: string;
+  id: string
+  name: string
+  email: string
+  website: string
+  phone: string
   address: {
-    city: string;
-    street: string;
-    suite: string;
-    zipcode: string;
+    city: string
+    street: string
+    suite: string
+    zipcode: string
   }
 }
 
@@ -26,7 +26,7 @@ const App = () => {
   const [filteredMonsters, setFilteredMonsters] = useState(monsters)
 
   useEffect(() => {
-    const fetchUsers =  async () => {
+    const fetchUsers = async () => {
       const users = await getData<Monster[]>("https://jsonplaceholder.typicode.com/users")
       setMonsters(users)
     }
@@ -47,15 +47,18 @@ const App = () => {
 
   return (
     <div className='App'>
-      <h1 className='App-title'>Monsters Rolodex</h1>
+      <h1 data-test='app-title' className='App-title'>
+        Monsters Rolodex
+      </h1>
 
       <SearchBox
+        data-cy='searchBar'
         onChangeHandler={onSearchChange}
         className='monster-search-box'
         placeholder='search Monsters'
       />
 
-      <CardList monsters={filteredMonsters} />
+      <CardList monsters={filteredMonsters} data-cy='card-list' />
     </div>
   )
 }
